@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <PackageId>Balta.Mediator</PackageId>
+    <Version>1.0.1</Version>
+    <icon>https://baltaio.blob.core.windows.net/static/images/icons/icone-novo-dark.png</icon>
+    <License>MIT</License>
+    <Authors>André Baltieri</Authors>
+    <Company>balta.io</Company>
+    <PackageDescription>Implementations for Mediator Pattern</PackageDescription>
+    <Description>Implementations for Mediator Pattern</Description>
+    <RepositoryUrl>https://github.com/andrebaltieri/Balta.Mediator</RepositoryUrl>
+
+    <PackageProjectUrl>https://github.com/andrebaltieri/Balta.Mediator</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>Mediator;Design Pattern;Domain;DDD;</PackageTags>
+
+    <Title>Mediator</Title>
+    <Summary>Implementations for Mediator Pattern</Summary>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Balta.Mediator.Abstractions" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+  </ItemGroup>
+
+</Project>
