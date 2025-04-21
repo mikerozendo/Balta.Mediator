@@ -1,4 +1,5 @@
 ﻿using Balta.Mediator.Abstractions;
+using Balta.Mediator.Exceptions;
 
 namespace Balta.Mediator;
 
@@ -12,14 +13,14 @@ public class Mediator(IServiceProvider serviceProvider) : IMediator
 
         var handlerObj = serviceProvider.GetService(handlerType);
         if (handlerObj == null)
-            throw new InvalidOperationException($"Handler not found for {requestType.Name}");
+            throw new MediatorConfigurationException($"Handler not found for {requestType.Name}");
 
         var method = handlerType.GetMethod("HandleAsync");
         if (method == null)
-            throw new InvalidOperationException($"HandleAsync method not found in {handlerType.Name}");
+            throw new MediatorConfigurationException($"HandleAsync method not found in {handlerType.Name}");
 
         if (method.Invoke(handlerObj, [request, cancellationToken]) is not Task<TResponse> task)
-            throw new InvalidOperationException(
+            throw new MediatorConfigurationException(
                 $"Handler {handlerObj.GetType().Name} returned null or an incompatible type.");
 
         return await task;
